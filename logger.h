@@ -20,7 +20,6 @@ extern "C" {
 extern FILE *LogFptr;
 extern sem_t *gLogMutex;
 
-
 #define printServerLog(...) {\
             P(gLogMutex);\
             fprintf(LogFptr, __VA_ARGS__);\
@@ -30,11 +29,13 @@ extern sem_t *gLogMutex;
 
 #define MAX_FRMT_TIME   32
 
+
 typedef struct serverTimeData{
     time_t brutTime;
     struct tm *timeInfo;
     char frmtBuf[MAX_FRMT_TIME];
 } serverTimeData;
+
 
 /**
  * To display the log file content
